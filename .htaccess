@@ -6,16 +6,27 @@
 # @author    Finn Rudolph <finn.rudolph@gmail.com>
 #
 
-<IfModule mod_setenvif.c>
+<IfModule mod_env.c>
     
+    #
+    # Root Path
+    #
     # Store the root path globaly in an environment variable that can also be used by PHP.
-    SetEnvIf Host ".*" ROOT_PATH=/fileadmin/content/blog/2014/responsive_apache_directory_listing
+    # 
+    # If you want to access the Apache directory listing at:
+    #
+    #     http://domain.com/fancy/directory/listing/ 
+    #
+    # Set the ROOT_PATH variable to:
+    #
+    #     /fancy/directory/listing
+    #
+    SetEnv ROOT_PATH /path/on/the/apache/webserver/to/this/file
 
 </IfModule>
 
 # Enable the directory listing
 Options +Indexes
-
 
 <IfModule mod_mime.c>
 
@@ -99,391 +110,15 @@ Options +Indexes
     IndexOptions IconHeight=28
 
     #
-    # Use the public/configuration_helper.php to generate
-    # this configuration. Take a look at the following
-    # website if you need more file types:
+    # Configuration
+    # 
+    # Make sure the environment variable "ROOT_PATH" is set to the correct path 
+    # on your Apache webserver. Then open the public/configuration_helper.php
+    # in your browser to generate a valid configuration.
     #
-    #     http://www.fileinfo.com/
+    # Paste the content of the ".htaccess" textarea below this comment.
     #
+
     
-    # Set absolute paths to header and footer files.
-    HeaderName /fileadmin/content/blog/2014/responsive_apache_directory_listing/public/header.phtml
-    ReadmeName /fileadmin/content/blog/2014/responsive_apache_directory_listing/public/footer.phtml
-
-    # Ignore all files in the public directory.
-    IndexIgnore /fileadmin/content/blog/2014/responsive_apache_directory_listing/public
-
-    # Overwrite the default icons with a placeholder.
-    AddIcon (blank,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) ^^BLANKICON^^
-    AddIcon (directory,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) ^^DIRECTORY^^
-    AddIcon (directory-parent,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) ..
-
-    # Add file type icons and descriptions.
-    AddDescription "Microsoft Word Document" .doc
-    AddIcon (file-text-doc,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .doc
-    AddDescription "Microsoft Word Open XML Document" .docx
-    AddIcon (file-text-docx,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .docx
-    AddDescription "Log File" .log
-    AddIcon (file-text-log,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .log
-    AddDescription "Outlook Mail Message" .msg
-    AddIcon (file-text-msg,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .msg
-    AddDescription "OpenDocument Text Document" .odt
-    AddIcon (file-text-odt,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .odt
-    AddDescription "Pages Document" .pages
-    AddIcon (file-text-pages,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .pages
-    AddDescription "Rich Text Format File" .rtf
-    AddIcon (file-text-rtf,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .rtf
-    AddDescription "LaTeX Source Document" .tex
-    AddIcon (file-text-tex,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .tex
-    AddDescription "Plain Text File" .txt
-    AddIcon (file-text-txt,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .txt
-    AddDescription "WordPerfect Document" .wpd
-    AddIcon (file-text-wpd,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .wpd
-    AddDescription "Microsoft Works Word Processor Document" .wps
-    AddIcon (file-text-wps,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .wps
-    AddDescription "Comma Separated Values File" .csv
-    AddIcon (file-data-csv,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .csv
-    AddDescription "Data File" .dat
-    AddIcon (file-data-dat,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .dat
-    AddDescription "Gerber File" .gbr
-    AddIcon (file-data-gbr,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .gbr
-    AddDescription "GEDCOM Genealogy Data File" .ged
-    AddIcon (file-data-ged,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .ged
-    AddDescription "Multi-Touch iBook" .ibooks
-    AddIcon (file-data-ibooks,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .ibooks
-    AddDescription "Keynote Presentation" .key
-    AddIcon (file-data-key,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .key
-    AddDescription "Mac OS X Keychain File" .keychain
-    AddIcon (file-data-keychain,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .keychain
-    AddDescription "PowerPoint Slide Show" .pps
-    AddIcon (file-data-pps,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .pps
-    AddDescription "PowerPoint Presentation" .ppt
-    AddIcon (file-data-ppt,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .ppt
-    AddDescription "PowerPoint Open XML Presentation" .pptx
-    AddIcon (file-data-pptx,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .pptx
-    AddDescription "Standard Data File" .sdf
-    AddIcon (file-data-sdf,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .sdf
-    AddDescription "Consolidated Unix File Archive" .tar
-    AddIcon (file-data-tar,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .tar
-    AddDescription "TurboTax 2012 Tax Return" .tax2012
-    AddIcon (file-data-tax2012,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .tax2012
-    AddDescription "vCard File" .vcf
-    AddIcon (file-data-vcf,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .vcf
-    AddDescription "XML File" .xml
-    AddIcon (file-data-xml,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .xml
-    AddDescription "Audio Interchange File Format" .aif
-    AddIcon (file-audio-aif,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .aif
-    AddDescription "Interchange File Format" .iff
-    AddIcon (file-audio-iff,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .iff
-    AddDescription "Media Playlist File" .m3u
-    AddIcon (file-audio-m3u,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .m3u
-    AddDescription "MPEG-4 Audio File" .m4a
-    AddIcon (file-audio-m4a,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .m4a
-    AddDescription "MIDI File" .mid
-    AddIcon (file-audio-mid,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .mid
-    AddDescription "MP3 Audio File" .mp3
-    AddIcon (file-audio-mp3,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .mp3
-    AddDescription "MPEG-2 Audio File" .mpa
-    AddIcon (file-audio-mpa,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .mpa
-    AddDescription "Real Audio File" .ra
-    AddIcon (file-audio-ra,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .ra
-    AddDescription "WAVE Audio File" .wav
-    AddIcon (file-audio-wav,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .wav
-    AddDescription "Windows Media Audio File" .wma
-    AddIcon (file-audio-wma,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .wma
-    AddDescription "3GPP2 Multimedia File" .3g2
-    AddIcon (file-video-3g2,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .3g2
-    AddDescription "3GPP Multimedia File" .3gp
-    AddIcon (file-video-3gp,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .3gp
-    AddDescription "Advanced Systems Format File" .asf
-    AddIcon (file-video-asf,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .asf
-    AddDescription "Microsoft ASF Redirector File" .asx
-    AddIcon (file-video-asx,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .asx
-    AddDescription "Audio Video Interleave File" .avi
-    AddIcon (file-video-avi,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .avi
-    AddDescription "Flash Video File" .flv
-    AddIcon (file-video-flv,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .flv
-    AddDescription "iTunes Video File" .m4v
-    AddIcon (file-video-m4v,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .m4v
-    AddDescription "Apple QuickTime Movie" .mov
-    AddIcon (file-video-mov,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .mov
-    AddDescription "MPEG-4 Video File" .mp4
-    AddIcon (file-video-mp4,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .mp4
-    AddDescription "MPEG Video File" .mpg
-    AddIcon (file-video-mpg,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .mpg
-    AddDescription "Real Media File" .rm
-    AddIcon (file-video-rm,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .rm
-    AddDescription "SubRip Subtitle File" .srt
-    AddIcon (file-video-srt,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .srt
-    AddDescription "Shockwave Flash Movie" .swf
-    AddIcon (file-video-swf,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .swf
-    AddDescription "DVD Video Object File" .vob
-    AddIcon (file-video-vob,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .vob
-    AddDescription "Windows Media Video File" .wmv
-    AddIcon (file-video-wmv,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .wmv
-    AddDescription "Rhino 3D Model" .3dm
-    AddIcon (file-3d-image-3dm,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .3dm
-    AddDescription "3D Studio Scene" .3ds
-    AddIcon (file-3d-image-3ds,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .3ds
-    AddDescription "3ds Max Scene File" .max
-    AddIcon (file-3d-image-max,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .max
-    AddDescription "Wavefront 3D Object File" .obj
-    AddIcon (file-3d-image-obj,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .obj
-    AddDescription "Bitmap Image File" .bmp
-    AddIcon (file-raster-image-bmp,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .bmp
-    AddDescription "DirectDraw Surface" .dds
-    AddIcon (file-raster-image-dds,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .dds
-    AddDescription "Graphical Interchange Format File" .gif
-    AddIcon (file-raster-image-gif,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .gif
-    AddDescription "JPEG Image" .jpg
-    AddIcon (file-raster-image-jpg,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .jpg
-    AddDescription "Portable Network Graphic" .png
-    AddIcon (file-raster-image-png,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .png
-    AddDescription "Adobe Photoshop Document" .psd
-    AddIcon (file-raster-image-psd,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .psd
-    AddDescription "PaintShop Pro Image" .pspimage
-    AddIcon (file-raster-image-pspimage,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .pspimage
-    AddDescription "Targa Graphic" .tga
-    AddIcon (file-raster-image-tga,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .tga
-    AddDescription "Thumbnail Image File" .thm
-    AddIcon (file-raster-image-thm,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .thm
-    AddDescription "Tagged Image File" .tif
-    AddIcon (file-raster-image-tif,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .tif
-    AddDescription "Tagged Image File Format" .tiff
-    AddIcon (file-raster-image-tiff,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .tiff
-    AddDescription "YUV Encoded Image File" .yuv
-    AddIcon (file-raster-image-yuv,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .yuv
-    AddDescription "Adobe Illustrator File" .ai
-    AddIcon (file-vector-image-ai,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .ai
-    AddDescription "Encapsulated PostScript File" .eps
-    AddIcon (file-vector-image-eps,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .eps
-    AddDescription "PostScript File" .ps
-    AddIcon (file-vector-image-ps,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .ps
-    AddDescription "Scalable Vector Graphics File" .svg
-    AddIcon (file-vector-image-svg,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .svg
-    AddDescription "Adobe InDesign Document" .indd
-    AddIcon (file-page-layout-indd,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .indd
-    AddDescription "Picture File" .pct
-    AddIcon (file-page-layout-pct,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .pct
-    AddDescription "Portable Document Format File" .pdf
-    AddIcon (file-page-layout-pdf,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .pdf
-    AddDescription "Works Spreadsheet" .xlr
-    AddIcon (file-spreadsheet-xlr,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .xlr
-    AddDescription "Excel Spreadsheet" .xls
-    AddIcon (file-spreadsheet-xls,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .xls
-    AddDescription "Microsoft Excel Open XML Spreadsheet" .xlsx
-    AddIcon (file-spreadsheet-xlsx,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .xlsx
-    AddDescription "Access 2007 Database File" .accdb
-    AddIcon (file-database-accdb,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .accdb
-    AddDescription "Database File" .db
-    AddIcon (file-database-db,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .db
-    AddDescription "Database File" .dbf
-    AddIcon (file-database-dbf,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .dbf
-    AddDescription "Microsoft Access Database" .mdb
-    AddIcon (file-database-mdb,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .mdb
-    AddDescription "Program Database" .pdb
-    AddIcon (file-database-pdb,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .pdb
-    AddDescription "Structured Query Language Data File" .sql
-    AddIcon (file-database-sql,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .sql
-    AddDescription "Android Package File" .apk
-    AddIcon (file-executable-apk,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .apk
-    AddDescription "Mac OS X Application" .app
-    AddIcon (file-executable-app,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .app
-    AddDescription "DOS Batch File" .bat
-    AddIcon (file-executable-bat,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .bat
-    AddDescription "Common Gateway Interface Script" .cgi
-    AddIcon (file-executable-cgi,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .cgi
-    AddDescription "DOS Command File" .com
-    AddIcon (file-executable-com,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .com
-    AddDescription "Windows Executable File" .exe
-    AddIcon (file-executable-exe,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .exe
-    AddDescription "Windows Gadget" .gadget
-    AddIcon (file-executable-gadget,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .gadget
-    AddDescription "Java Archive File" .jar
-    AddIcon (file-executable-jar,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .jar
-    AddDescription "Program Information File" .pif
-    AddIcon (file-executable-pif,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .pif
-    AddDescription "VBScript File" .vb
-    AddIcon (file-executable-vb,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .vb
-    AddDescription "Windows Script File" .wsf
-    AddIcon (file-executable-wsf,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .wsf
-    AddDescription "Video Game Demo File" .dem
-    AddIcon (file-game-dem,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .dem
-    AddDescription "Saved Game File" .gam
-    AddIcon (file-game-gam,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .gam
-    AddDescription "Nintendo (NES) ROM File" .nes
-    AddIcon (file-game-nes,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .nes
-    AddDescription "N64 Game ROM File" .rom
-    AddIcon (file-game-rom,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .rom
-    AddDescription "Saved Game" .sav
-    AddIcon (file-game-sav,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .sav
-    AddDescription "AutoCAD Drawing Database File" .dwg
-    AddIcon (file-cad-dwg,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .dwg
-    AddDescription "Drawing Exchange Format File" .dxf
-    AddIcon (file-cad-dxf,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .dxf
-    AddDescription "GPS Exchange File" .gpx
-    AddIcon (file-gis-gpx,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .gpx
-    AddDescription "Keyhole Markup Language File" .kml
-    AddIcon (file-gis-kml,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .kml
-    AddDescription "Google Earth Placemark File" .kmz
-    AddIcon (file-gis-kmz,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .kmz
-    AddDescription "Active Server Page" .asp
-    AddIcon (file-web-asp,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .asp
-    AddDescription "Active Server Page Extended File" .aspx
-    AddIcon (file-web-aspx,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .aspx
-    AddDescription "Internet Security Certificate" .cer
-    AddIcon (file-web-cer,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .cer
-    AddDescription "ColdFusion Markup File" .cfm
-    AddIcon (file-web-cfm,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .cfm
-    AddDescription "Certificate Signing Request File" .csr
-    AddIcon (file-web-csr,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .csr
-    AddDescription "Cascading Style Sheet" .css
-    AddIcon (file-web-css,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .css
-    AddDescription "Hypertext Markup Language File" .htm
-    AddIcon (file-web-htm,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .htm
-    AddDescription "Hypertext Markup Language File" .html
-    AddIcon (file-web-html,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .html
-    AddDescription "JavaScript File" .js
-    AddIcon (file-web-js,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .js
-    AddDescription "Java Server Page" .jsp
-    AddIcon (file-web-jsp,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .jsp
-    AddDescription "PHP Source Code File" .php
-    AddIcon (file-web-php,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .php
-    AddDescription "PHP Web Page" .phtml
-    AddIcon (file-web-phtml,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .phtml
-    AddDescription "Rich Site Summary" .rss
-    AddIcon (file-web-rss,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .rss
-    AddDescription "Extensible Hypertext Markup Language File" .xhtml
-    AddIcon (file-web-xhtml,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .xhtml
-    AddDescription "Chrome Extension" .crx
-    AddIcon (file-plugin-crx,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .crx
-    AddDescription "Mac OS X Plug-in" .plugin
-    AddIcon (file-plugin-plugin,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .plugin
-    AddDescription "Windows Font File" .fnt
-    AddIcon (file-font-fnt,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .fnt
-    AddDescription "Generic Font File" .fon
-    AddIcon (file-font-fon,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .fon
-    AddDescription "OpenType Font" .otf
-    AddIcon (file-font-otf,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .otf
-    AddDescription "TrueType Font" .ttf
-    AddIcon (file-font-ttf,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .ttf
-    AddDescription "Windows Cabinet File" .cab
-    AddIcon (file-system-cab,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .cab
-    AddDescription "Windows Control Panel Item" .cpl
-    AddIcon (file-system-cpl,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .cpl
-    AddDescription "Windows Cursor" .cur
-    AddIcon (file-system-cur,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .cur
-    AddDescription "Windows 8 Desktop Theme Pack File" .deskthemepack
-    AddIcon (file-system-deskthemepack,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .deskthemepack
-    AddDescription "Dynamic Link Library" .dll
-    AddIcon (file-system-dll,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .dll
-    AddDescription "Windows Memory Dump" .dmp
-    AddIcon (file-system-dmp,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .dmp
-    AddDescription "Device Driver" .drv
-    AddIcon (file-system-drv,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .drv
-    AddDescription "Mac OS X Icon Resource File" .icns
-    AddIcon (file-system-icns,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .icns
-    AddDescription "Icon File" .ico
-    AddIcon (file-system-ico,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .ico
-    AddDescription "Windows File Shortcut" .lnk
-    AddIcon (file-system-lnk,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .lnk
-    AddDescription "Windows System File" .sys
-    AddIcon (file-system-sys,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .sys
-    AddDescription "Configuration File" .cfg
-    AddIcon (file-settings-cfg,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .cfg
-    AddDescription "Windows Initialization File" .ini
-    AddIcon (file-settings-ini,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .ini
-    AddDescription "Outlook Profile File" .prf
-    AddIcon (file-settings-prf,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .prf
-    AddDescription "BinHex 40 Encoded File" .hqx
-    AddIcon (file-encoded-hqx,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .hqx
-    AddDescription "Multi-Purpose Internet Mail Message File" .mim
-    AddIcon (file-encoded-mim,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .mim
-    AddDescription "Uuencoded File" .uue
-    AddIcon (file-encoded-uue,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .uue
-    AddDescription "7-Zip Compressed File" .7z
-    AddIcon (file-compressed-7z,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .7z
-    AddDescription "Comic Book RAR Archive" .cbr
-    AddIcon (file-compressed-cbr,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .cbr
-    AddDescription "Debian Software Package" .deb
-    AddIcon (file-compressed-deb,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .deb
-    AddDescription "Gnu Zipped Archive" .gz
-    AddIcon (file-compressed-gz,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .gz
-    AddDescription "Mac OS X Installer Package" .pkg
-    AddIcon (file-compressed-pkg,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .pkg
-    AddDescription "WinRAR Compressed Archive" .rar
-    AddIcon (file-compressed-rar,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .rar
-    AddDescription "Red Hat Package Manager File" .rpm
-    AddIcon (file-compressed-rpm,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .rpm
-    AddDescription "StuffIt X Archive" .sitx
-    AddIcon (file-compressed-sitx,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .sitx
-    AddDescription "Compressed Tarball File" .targz
-    AddIcon (file-compressed-targz,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .targz
-    AddDescription "Zipped File" .zip
-    AddIcon (file-compressed-zip,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .zip
-    AddDescription "Extended Zip File" .zipx
-    AddIcon (file-compressed-zipx,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .zipx
-    AddDescription "Binary Disc Image" .bin
-    AddIcon (file-disk-image-bin,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .bin
-    AddDescription "Cue Sheet File" .cue
-    AddIcon (file-disk-image-cue,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .cue
-    AddDescription "Mac OS X Disk Image" .dmg
-    AddIcon (file-disk-image-dmg,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .dmg
-    AddDescription "Disc Image File" .iso
-    AddIcon (file-disk-image-iso,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .iso
-    AddDescription "Media Disc Image File" .mdf
-    AddIcon (file-disk-image-mdf,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .mdf
-    AddDescription "Toast Disc Image" .toast
-    AddIcon (file-disk-image-toast,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .toast
-    AddDescription "Virtual CD" .vcd
-    AddIcon (file-disk-image-vcd,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .vcd
-    AddDescription "C/C++ Source Code File" .c
-    AddIcon (file-developer-c,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .c
-    AddDescription "Java Class File" .class
-    AddIcon (file-developer-class,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .class
-    AddDescription "C++ Source Code File" .cpp
-    AddIcon (file-developer-cpp,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .cpp
-    AddDescription "Visual C# Source Code File" .cs
-    AddIcon (file-developer-cs,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .cs
-    AddDescription "Document Type Definition File" .dtd
-    AddIcon (file-developer-dtd,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .dtd
-    AddDescription "Adobe Flash Animation" .fla
-    AddIcon (file-developer-fla,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .fla
-    AddDescription "C/C++/Objective-C Header File" .h
-    AddIcon (file-developer-h,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .h
-    AddDescription "Java Source Code File" .java
-    AddIcon (file-developer-java,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .java
-    AddDescription "Lua Source File" .lua
-    AddIcon (file-developer-lua,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .lua
-    AddDescription "Objective-C Implementation File" .m
-    AddIcon (file-developer-m,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .m
-    AddDescription "Perl Script" .pl
-    AddIcon (file-developer-pl,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .pl
-    AddDescription "Python Script" .py
-    AddIcon (file-developer-py,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .py
-    AddDescription "Bash Shell Script" .sh
-    AddIcon (file-developer-sh,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .sh
-    AddDescription "Visual Studio Solution File" .sln
-    AddIcon (file-developer-sln,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .sln
-    AddDescription "Swift Source Code File" .swift
-    AddIcon (file-developer-swift,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .swift
-    AddDescription "Visual C++ Project" .vcxproj
-    AddIcon (file-developer-vcxproj,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .vcxproj
-    AddDescription "Xcode Project" .xcodeproj
-    AddIcon (file-developer-xcodeproj,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .xcodeproj
-    AddDescription "Backup File" .bak
-    AddIcon (file-backup-bak,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .bak
-    AddDescription "Temporary File" .tmp
-    AddIcon (file-backup-tmp,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .tmp
-    AddDescription "Chrome Partially Downloaded File" .crdownload
-    AddIcon (file-misc-crdownload,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .crdownload
-    AddDescription "iCalendar File" .ics
-    AddIcon (file-misc-ics,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .ics
-    AddDescription "Windows Installer Package" .msi
-    AddIcon (file-misc-msi,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .msi
-    AddDescription "Partially Downloaded File" .part
-    AddIcon (file-misc-part,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .part
-    AddDescription "BitTorrent File" .torrent
-    AddIcon (file-misc-torrent,/fileadmin/content/blog/2014/responsive_apache_directory_listing/public/placeholder.png) .torrent
-
+    
 </IfModule>

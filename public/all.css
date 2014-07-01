@@ -299,11 +299,14 @@
     }
 
     /**
-     * Use the public/configuration_helper.php to generate
-     * generate this configuration. Take a look at the following
-     * website if you need more file types:
+     * File Type Icons
      *
-     *     http://www.fileinfo.com/
+     * Make sure the environment variable "ROOT_PATH" is set to the correct path 
+     * on your Apache webserver. Then open the public/configuration_helper.php
+     * in your browser to generate a valid configuration.
+     *
+     * Replace all td:after CSS pseudo-element definitions below this comment 
+     * with the content of the "public/all.css" textarea.
      */
     td[data-icon^="[file-text-"]:after { background: #1abc9c }
     td[data-icon^="[file-data-"]:after { background: #2ecc71 }
