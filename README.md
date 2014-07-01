@@ -1,7 +1,7 @@
 Responsive Apache Directory Listing
 ===================================
 
-A directory listing configuration for the famous Apache webserver. It improves the default directory listing in many aspects:
+A directory listing configuration for the famous Apache web server. It greatly improves the default directory listing:
 
 * HTML5
 * Responsive
@@ -14,22 +14,22 @@ A directory listing configuration for the famous Apache webserver. It improves t
 * Title shows current path location
 * Denies navigation outside the root level
 
-Feel free to try the [demo](http://finnrudolph.de/fileadmin/content/blog/2014/responsive_apache_directory_listing/demo/) to see some running code.
+Try a [demo](http://finnrudolph.de/fileadmin/content/blog/2014/responsive_apache_directory_listing/demo/) to see some running code.
 
 Installation
 ------------
 
-###Download
+###1. Download
 
 Download the [latest version](https://github.com/countzero/responsive_apache_directory_listing/releases) and unpack it to a nice place on your machine.
 
-###Upload
+###2. Upload
 
-Upload the `.htaccess` file and the `public` directory to a location on your Apache webserver.
+Upload the `.htaccess` file and the `public` directory to a location on your Apache web server.
 
-###Configuration
+###3. Configure
 
-Open the [.htaccess](https://github.com/countzero/responsive_apache_directory_listing/blob/master/.htaccess#L12) file with an text editor of your choice. Change the value of the environment variable `ROOT_PATH` to the path on your Apache webserver.
+Open the [.htaccess](https://github.com/countzero/responsive_apache_directory_listing/blob/master/.htaccess#L12) file with an text editor of your choice. Change the value of the environment variable `ROOT_PATH` to the path on your Apache web server.
 
 Open the [configuration_helper.php](https://github.com/countzero/responsive_apache_directory_listing/blob/master/public/configuration_helper.php) in your browser. Copy the content of the ".htaccess" textarea to the configuration section in the [.htaccess](https://github.com/countzero/responsive_apache_directory_listing/blob/master/.htaccess#L113) file.
 
