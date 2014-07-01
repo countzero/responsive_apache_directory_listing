@@ -1,0 +1,183 @@
+file-text-;doc;Microsoft Word Document
+file-text-;docx;Microsoft Word Open XML Document
+file-text-;log;Log File
+file-text-;msg;Outlook Mail Message
+file-text-;odt;OpenDocument Text Document
+file-text-;pages;Pages Document
+file-text-;rtf;Rich Text Format File
+file-text-;tex;LaTeX Source Document
+file-text-;txt;Plain Text File
+file-text-;wpd;WordPerfect Document
+file-text-;wps;Microsoft Works Word Processor Document
+file-data-;csv;Comma Separated Values File
+file-data-;dat;Data File
+file-data-;gbr;Gerber File
+file-data-;ged;GEDCOM Genealogy Data File
+file-data-;ibooks;Multi-Touch iBook
+file-data-;key;Keynote Presentation
+file-data-;keychain;Mac OS X Keychain File
+file-data-;pps;PowerPoint Slide Show
+file-data-;ppt;PowerPoint Presentation
+file-data-;pptx;PowerPoint Open XML Presentation
+file-data-;sdf;Standard Data File
+file-data-;tar;Consolidated Unix File Archive
+file-data-;tax2012;TurboTax 2012 Tax Return
+file-data-;vcf;vCard File
+file-data-;xml;XML File
+file-audio-;aif;Audio Interchange File Format
+file-audio-;iff;Interchange File Format
+file-audio-;m3u;Media Playlist File
+file-audio-;m4a;MPEG-4 Audio File
+file-audio-;mid;MIDI File
+file-audio-;mp3;MP3 Audio File
+file-audio-;mpa;MPEG-2 Audio File
+file-audio-;ra;Real Audio File
+file-audio-;wav;WAVE Audio File
+file-audio-;wma;Windows Media Audio File
+file-video-;3g2;3GPP2 Multimedia File
+file-video-;3gp;3GPP Multimedia File
+file-video-;asf;Advanced Systems Format File
+file-video-;asx;Microsoft ASF Redirector File
+file-video-;avi;Audio Video Interleave File
+file-video-;flv;Flash Video File
+file-video-;m4v;iTunes Video File
+file-video-;mov;Apple QuickTime Movie
+file-video-;mp4;MPEG-4 Video File
+file-video-;mpg;MPEG Video File
+file-video-;rm;Real Media File
+file-video-;srt;SubRip Subtitle File
+file-video-;swf;Shockwave Flash Movie
+file-video-;vob;DVD Video Object File
+file-video-;wmv;Windows Media Video File
+file-3d-image-;3dm;Rhino 3D Model
+file-3d-image-;3ds;3D Studio Scene
+file-3d-image-;max;3ds Max Scene File
+file-3d-image-;obj;Wavefront 3D Object File
+file-raster-image-;bmp;Bitmap Image File
+file-raster-image-;dds;DirectDraw Surface
+file-raster-image-;gif;Graphical Interchange Format File
+file-raster-image-;jpg;JPEG Image
+file-raster-image-;png;Portable Network Graphic
+file-raster-image-;psd;Adobe Photoshop Document
+file-raster-image-;pspimage;PaintShop Pro Image
+file-raster-image-;tga;Targa Graphic
+file-raster-image-;thm;Thumbnail Image File
+file-raster-image-;tif;Tagged Image File
+file-raster-image-;tiff;Tagged Image File Format
+file-raster-image-;yuv;YUV Encoded Image File
+file-vector-image-;ai;Adobe Illustrator File
+file-vector-image-;eps;Encapsulated PostScript File
+file-vector-image-;ps;PostScript File
+file-vector-image-;svg;Scalable Vector Graphics File
+file-page-layout-;indd;Adobe InDesign Document
+file-page-layout-;pct;Picture File
+file-page-layout-;pdf;Portable Document Format File
+file-spreadsheet-;xlr;Works Spreadsheet
+file-spreadsheet-;xls;Excel Spreadsheet
+file-spreadsheet-;xlsx;Microsoft Excel Open XML Spreadsheet
+file-database-;accdb;Access 2007 Database File
+file-database-;db;Database File
+file-database-;dbf;Database File
+file-database-;mdb;Microsoft Access Database
+file-database-;pdb;Program Database
+file-database-;sql;Structured Query Language Data File
+file-executable-;apk;Android Package File
+file-executable-;app;Mac OS X Application
+file-executable-;bat;DOS Batch File
+file-executable-;cgi;Common Gateway Interface Script
+file-executable-;com;DOS Command File
+file-executable-;exe;Windows Executable File
+file-executable-;gadget;Windows Gadget
+file-executable-;jar;Java Archive File
+file-executable-;pif;Program Information File
+file-executable-;vb;VBScript File
+file-executable-;wsf;Windows Script File
+file-game-;dem;Video Game Demo File
+file-game-;gam;Saved Game File
+file-game-;nes;Nintendo (NES) ROM File
+file-game-;rom;N64 Game ROM File
+file-game-;sav;Saved Game
+file-cad-;dwg;AutoCAD Drawing Database File
+file-cad-;dxf;Drawing Exchange Format File
+file-gis-;gpx;GPS Exchange File
+file-gis-;kml;Keyhole Markup Language File
+file-gis-;kmz;Google Earth Placemark File
+file-web-;asp;Active Server Page
+file-web-;aspx;Active Server Page Extended File
+file-web-;cer;Internet Security Certificate
+file-web-;cfm;ColdFusion Markup File
+file-web-;csr;Certificate Signing Request File
+file-web-;css;Cascading Style Sheet
+file-web-;htm;Hypertext Markup Language File
+file-web-;html;Hypertext Markup Language File
+file-web-;js;JavaScript File
+file-web-;jsp;Java Server Page
+file-web-;php;PHP Source Code File
+file-web-;phtml;PHP Web Page
+file-web-;rss;Rich Site Summary
+file-web-;xhtml;Extensible Hypertext Markup Language File
+file-plugin-;crx;Chrome Extension
+file-plugin-;plugin;Mac OS X Plug-in
+file-font-;fnt;Windows Font File
+file-font-;fon;Generic Font File
+file-font-;otf;OpenType Font
+file-font-;ttf;TrueType Font
+file-system-;cab;Windows Cabinet File
+file-system-;cpl;Windows Control Panel Item
+file-system-;cur;Windows Cursor
+file-system-;deskthemepack;Windows 8 Desktop Theme Pack File
+file-system-;dll;Dynamic Link Library
+file-system-;dmp;Windows Memory Dump
+file-system-;drv;Device Driver
+file-system-;icns;Mac OS X Icon Resource File
+file-system-;ico;Icon File
+file-system-;lnk;Windows File Shortcut
+file-system-;sys;Windows System File
+file-settings-;cfg;Configuration File
+file-settings-;ini;Windows Initialization File
+file-settings-;prf;Outlook Profile File
+file-encoded-;hqx;BinHex 40 Encoded File
+file-encoded-;mim;Multi-Purpose Internet Mail Message File
+file-encoded-;uue;Uuencoded File
+file-compressed-;7z;7-Zip Compressed File
+file-compressed-;cbr;Comic Book RAR Archive
+file-compressed-;deb;Debian Software Package
+file-compressed-;gz;Gnu Zipped Archive
+file-compressed-;pkg;Mac OS X Installer Package
+file-compressed-;rar;WinRAR Compressed Archive
+file-compressed-;rpm;Red Hat Package Manager File
+file-compressed-;sitx;StuffIt X Archive
+file-compressed-;targz;Compressed Tarball File
+file-compressed-;zip;Zipped File
+file-compressed-;zipx;Extended Zip File
+file-disk-image-;bin;Binary Disc Image
+file-disk-image-;cue;Cue Sheet File
+file-disk-image-;dmg;Mac OS X Disk Image
+file-disk-image-;iso;Disc Image File
+file-disk-image-;mdf;Media Disc Image File
+file-disk-image-;toast;Toast Disc Image
+file-disk-image-;vcd;Virtual CD
+file-developer-;c;C/C++ Source Code File
+file-developer-;class;Java Class File
+file-developer-;cpp;C++ Source Code File
+file-developer-;cs;Visual C# Source Code File
+file-developer-;dtd;Document Type Definition File
+file-developer-;fla;Adobe Flash Animation
+file-developer-;h;C/C++/Objective-C Header File
+file-developer-;java;Java Source Code File
+file-developer-;lua;Lua Source File
+file-developer-;m;Objective-C Implementation File
+file-developer-;pl;Perl Script
+file-developer-;py;Python Script
+file-developer-;sh;Bash Shell Script
+file-developer-;sln;Visual Studio Solution File
+file-developer-;swift;Swift Source Code File
+file-developer-;vcxproj;Visual C++ Project
+file-developer-;xcodeproj;Xcode Project
+file-backup-;bak;Backup File
+file-backup-;tmp;Temporary File
+file-misc-;crdownload;Chrome Partially Downloaded File
+file-misc-;ics;iCalendar File
+file-misc-;msi;Windows Installer Package
+file-misc-;part;Partially Downloaded File
+file-misc-;torrent;BitTorrent File

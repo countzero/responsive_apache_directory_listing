@@ -1,0 +1,690 @@
+/**
+ * all.css
+ *
+ * @copyright Copyright (c) 2014 Finn Rudolph (http://finnrudolph.de)
+ * @license   http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0
+ * @author    Finn Rudolph <finn.rudolph@gmail.com>
+ */
+
+ 
+/**
+ * Default
+ *
+ * Default definitions for the smallest screen size. All styles in 
+ * this media query can be overridden by following breakpoints.
+ */
+@media screen
+{
+    /**
+     * Normalize and change the box model
+     */
+    * {
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    
+    /**
+     * Register HTML5 elements
+     */
+    main,
+    header,
+    section,
+    footer {
+        display: block;
+    }
+    
+    /**
+     * HTML
+     */
+    html {
+        width: 100%;
+        height: 100%;
+        font-size: 100%;
+        background: #eee;
+    }
+
+    /**
+     * Body
+     */
+    body {
+        height: 100%;
+        color: #333;
+        max-width: 1400px;
+        min-width: 320px;
+        margin: 0 auto;
+        font-family: sans-serif;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        position: relative;
+        
+    }
+    
+    /**
+     * Emphasize
+     */
+    em {
+        font-family: sans-serif;
+    }
+    
+    /**
+     * Headline
+     */
+    h1 {
+        font-family: sans-serif;
+        font-weight: normal;
+        font-size: 1.75rem;
+        line-height: 2.5rem;
+        word-break: break-all;
+        white-space: pre-wrap;
+    }
+    
+    /**
+     * Anchor
+     */
+    a {
+        color: #00b3c4; 
+        text-decoration: none;
+    }
+    a:hover {
+        color: #333;
+    }
+    
+    /**
+     * Main
+     */
+    main {
+        margin-bottom: -4rem;
+        padding-bottom: 4rem;
+        min-height: 100%;
+        position: relative;
+        width: 100%;
+    }
+
+    /**
+     * Section Background
+     */
+    section:before {
+        content: '';
+        background: #fff;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 4rem;
+        left: 0;
+        z-index: -1;
+    }
+    
+    /**
+     * Header
+     */
+    header {
+        background: #00b3c4;
+        color: #fff;
+        padding: .5rem;
+        overflow: auto;
+    }    
+    header > h1 > a {
+        color: #fff;
+        padding: 0 .25rem;
+    }
+    header > h1 > a:first-child {
+        padding-left: 0;
+    }
+    
+    /**
+     * Directory Listing Table
+     */
+    table {
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    tr,
+    td {
+        outline: 0;
+        border: 0;
+    }
+
+    /* Table Head */
+    th {
+        background: #333;
+        text-align: left;
+    }
+    th > a {
+        display: block;
+        padding: .5rem;
+        font-weight: normal;
+        color: #fff;
+        font-size: 1.125rem;
+    }
+    th > a:hover {
+        color: #00b3c4;
+    }
+    
+    /* Table Content */
+    td {
+        vertical-align: middle;
+        text-align: left;
+        padding: 0 .5rem;
+        vertical-align: top;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+    tr + tr + tr > td {
+        border-top: .0625rem solid #eee;
+    }
+    td > a {
+        color: #333;
+    }
+    tr:hover > td {
+        background: #eee;
+    }
+    
+    /* Icon Column */
+    th:first-child {
+        width: 2.25rem;
+    }
+    td:first-child {
+        padding: .25rem .5rem;
+        overflow: hidden;
+    }
+    
+    /* File Name Column */
+    th + th {
+        width: 100%;
+    }
+    td + td {
+        line-height:2.5rem;
+    }
+    
+    /* Last Modified Column */
+    th + th + th {
+        width: 10rem;
+    }
+    th + th + th,
+    td + td + td {
+        display: none;
+    }
+    
+    /* Size Column */
+    th + th + th + th {
+        width: 4rem;
+    }
+    th + th + th + th,
+    td + td + td + td {
+        text-align: right;
+        display: table-cell;
+    }
+    
+    /* Description Column */ 
+    th + th + th + th + th,
+    td + td + td + td + td {
+        text-align: left;
+        display: none;
+    }
+    
+    /* Hide all placeholder images */
+    th[data-icon] > img,
+    td[data-icon] > img {
+        display: none;
+    }
+    
+    /* Icon - Shared */
+    td[data-icon="[directory]"]:after,
+    td[data-icon="[directory-parent]"]:after,
+    td[data-icon^="[file"]:after {
+        text-align: center;
+        text-transform: uppercase;
+        font-family: monospace;
+        font-size: .625rem;
+        width: 1.75rem;
+        display: block;
+        overflow: hidden;
+    }
+    
+    /* Icon - Directory */
+    td[data-icon="[directory]"]{
+        padding-top:.375rem;
+    }
+    td[data-icon="[directory]"]:after {
+        content: "dir";
+        height: 1.75rem;
+        line-height: 2rem;
+        color: #fff;
+        background: #f39c12;
+    }
+    
+    /* Icon - Parent Directory */
+    td[data-icon="[directory-parent]"]:after {
+        content: "..";
+        height: 2rem;
+        line-height: 2.25rem;
+        background: transparent;
+        color: #333;
+    }
+    
+    /* Icon - File - Shared */
+    td[data-icon^="[file"]:after {
+        content: "?";
+        height: 2rem;
+        line-height: 2.25rem;
+        background: #f00;
+        color: #fff;
+    }
+    tr:hover > td[data-icon="[directory]"]:after,
+    tr:hover > td[data-icon^="[file"]:after {
+        background: #333;
+    }
+    
+    /* Icon - File - Triangle */
+    td[data-icon^="[file"]:before {
+        content: "";
+        display:block;
+        position: absolute;
+        left: 1.75rem;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 .75rem .75rem 0;
+        border-color: transparent #fff transparent transparent;
+    }
+    tr:hover > td[data-icon^="[file"]:before {
+        border-color: transparent #eee transparent transparent;
+    }
+
+    /**
+     * Use the public/configuration_helper.php to generate
+     * generate this configuration. Take a look at the following
+     * website if you need more file types:
+     *
+     *     http://www.fileinfo.com/
+     */
+    td[data-icon^="[file-text-"]:after { background: #1abc9c }
+    td[data-icon^="[file-data-"]:after { background: #2ecc71 }
+    td[data-icon^="[file-audio-"]:after { background: #3498db }
+    td[data-icon^="[file-video-"]:after { background: #9b59b6 }
+    td[data-icon^="[file-3d-image-"]:after { background: #34495e }
+    td[data-icon^="[file-raster-image-"]:after { background: #16a085 }
+    td[data-icon^="[file-vector-image-"]:after { background: #27ae60 }
+    td[data-icon^="[file-page-layout-"]:after { background: #2980b9 }
+    td[data-icon^="[file-spreadsheet-"]:after { background: #8e44ad }
+    td[data-icon^="[file-database-"]:after { background: #2c3e50 }
+    td[data-icon^="[file-executable-"]:after { background: #f1c40f }
+    td[data-icon^="[file-game-"]:after { background: #e67e22 }
+    td[data-icon^="[file-cad-"]:after { background: #e74c3c }
+    td[data-icon^="[file-gis-"]:after { background: #95a5a6 }
+    td[data-icon^="[file-web-"]:after { background: #95a5a6 }
+    td[data-icon^="[file-plugin-"]:after { background: #d35400 }
+    td[data-icon^="[file-font-"]:after { background: #d35400 }
+    td[data-icon^="[file-system-"]:after { background: #c0392b }
+    td[data-icon^="[file-settings-"]:after { background: #bdc3c7 }
+    td[data-icon^="[file-encoded-"]:after { background: #7f8c8d }
+    td[data-icon^="[file-compressed-"]:after { background: #1abc9c }
+    td[data-icon^="[file-disk-image-"]:after { background: #2ecc71 }
+    td[data-icon^="[file-developer-"]:after { background: #3498db }
+    td[data-icon^="[file-backup-"]:after { background: #9b59b6 }
+    td[data-icon^="[file-misc-"]:after { background: #34495e }
+    td[data-icon="[file-text-doc]"]:after { content: "doc" }
+    td[data-icon="[file-text-docx]"]:after { content: "docx" }
+    td[data-icon="[file-text-log]"]:after { content: "log" }
+    td[data-icon="[file-text-msg]"]:after { content: "msg" }
+    td[data-icon="[file-text-odt]"]:after { content: "odt" }
+    td[data-icon="[file-text-pages]"]:after { content: "pag…" }
+    td[data-icon="[file-text-rtf]"]:after { content: "rtf" }
+    td[data-icon="[file-text-tex]"]:after { content: "tex" }
+    td[data-icon="[file-text-txt]"]:after { content: "txt" }
+    td[data-icon="[file-text-wpd]"]:after { content: "wpd" }
+    td[data-icon="[file-text-wps]"]:after { content: "wps" }
+    td[data-icon="[file-data-csv]"]:after { content: "csv" }
+    td[data-icon="[file-data-dat]"]:after { content: "dat" }
+    td[data-icon="[file-data-gbr]"]:after { content: "gbr" }
+    td[data-icon="[file-data-ged]"]:after { content: "ged" }
+    td[data-icon="[file-data-ibooks]"]:after { content: "ibo…" }
+    td[data-icon="[file-data-key]"]:after { content: "key" }
+    td[data-icon="[file-data-keychain]"]:after { content: "key…" }
+    td[data-icon="[file-data-pps]"]:after { content: "pps" }
+    td[data-icon="[file-data-ppt]"]:after { content: "ppt" }
+    td[data-icon="[file-data-pptx]"]:after { content: "pptx" }
+    td[data-icon="[file-data-sdf]"]:after { content: "sdf" }
+    td[data-icon="[file-data-tar]"]:after { content: "tar" }
+    td[data-icon="[file-data-tax2012]"]:after { content: "tax…" }
+    td[data-icon="[file-data-vcf]"]:after { content: "vcf" }
+    td[data-icon="[file-data-xml]"]:after { content: "xml" }
+    td[data-icon="[file-audio-aif]"]:after { content: "aif" }
+    td[data-icon="[file-audio-iff]"]:after { content: "iff" }
+    td[data-icon="[file-audio-m3u]"]:after { content: "m3u" }
+    td[data-icon="[file-audio-m4a]"]:after { content: "m4a" }
+    td[data-icon="[file-audio-mid]"]:after { content: "mid" }
+    td[data-icon="[file-audio-mp3]"]:after { content: "mp3" }
+    td[data-icon="[file-audio-mpa]"]:after { content: "mpa" }
+    td[data-icon="[file-audio-ra]"]:after { content: "ra" }
+    td[data-icon="[file-audio-wav]"]:after { content: "wav" }
+    td[data-icon="[file-audio-wma]"]:after { content: "wma" }
+    td[data-icon="[file-video-3g2]"]:after { content: "3g2" }
+    td[data-icon="[file-video-3gp]"]:after { content: "3gp" }
+    td[data-icon="[file-video-asf]"]:after { content: "asf" }
+    td[data-icon="[file-video-asx]"]:after { content: "asx" }
+    td[data-icon="[file-video-avi]"]:after { content: "avi" }
+    td[data-icon="[file-video-flv]"]:after { content: "flv" }
+    td[data-icon="[file-video-m4v]"]:after { content: "m4v" }
+    td[data-icon="[file-video-mov]"]:after { content: "mov" }
+    td[data-icon="[file-video-mp4]"]:after { content: "mp4" }
+    td[data-icon="[file-video-mpg]"]:after { content: "mpg" }
+    td[data-icon="[file-video-rm]"]:after { content: "rm" }
+    td[data-icon="[file-video-srt]"]:after { content: "srt" }
+    td[data-icon="[file-video-swf]"]:after { content: "swf" }
+    td[data-icon="[file-video-vob]"]:after { content: "vob" }
+    td[data-icon="[file-video-wmv]"]:after { content: "wmv" }
+    td[data-icon="[file-3d-image-3dm]"]:after { content: "3dm" }
+    td[data-icon="[file-3d-image-3ds]"]:after { content: "3ds" }
+    td[data-icon="[file-3d-image-max]"]:after { content: "max" }
+    td[data-icon="[file-3d-image-obj]"]:after { content: "obj" }
+    td[data-icon="[file-raster-image-bmp]"]:after { content: "bmp" }
+    td[data-icon="[file-raster-image-dds]"]:after { content: "dds" }
+    td[data-icon="[file-raster-image-gif]"]:after { content: "gif" }
+    td[data-icon="[file-raster-image-jpg]"]:after { content: "jpg" }
+    td[data-icon="[file-raster-image-png]"]:after { content: "png" }
+    td[data-icon="[file-raster-image-psd]"]:after { content: "psd" }
+    td[data-icon="[file-raster-image-pspimage]"]:after { content: "psp…" }
+    td[data-icon="[file-raster-image-tga]"]:after { content: "tga" }
+    td[data-icon="[file-raster-image-thm]"]:after { content: "thm" }
+    td[data-icon="[file-raster-image-tif]"]:after { content: "tif" }
+    td[data-icon="[file-raster-image-tiff]"]:after { content: "tiff" }
+    td[data-icon="[file-raster-image-yuv]"]:after { content: "yuv" }
+    td[data-icon="[file-vector-image-ai]"]:after { content: "ai" }
+    td[data-icon="[file-vector-image-eps]"]:after { content: "eps" }
+    td[data-icon="[file-vector-image-ps]"]:after { content: "ps" }
+    td[data-icon="[file-vector-image-svg]"]:after { content: "svg" }
+    td[data-icon="[file-page-layout-indd]"]:after { content: "indd" }
+    td[data-icon="[file-page-layout-pct]"]:after { content: "pct" }
+    td[data-icon="[file-page-layout-pdf]"]:after { content: "pdf" }
+    td[data-icon="[file-spreadsheet-xlr]"]:after { content: "xlr" }
+    td[data-icon="[file-spreadsheet-xls]"]:after { content: "xls" }
+    td[data-icon="[file-spreadsheet-xlsx]"]:after { content: "xlsx" }
+    td[data-icon="[file-database-accdb]"]:after { content: "acc…" }
+    td[data-icon="[file-database-db]"]:after { content: "db" }
+    td[data-icon="[file-database-dbf]"]:after { content: "dbf" }
+    td[data-icon="[file-database-mdb]"]:after { content: "mdb" }
+    td[data-icon="[file-database-pdb]"]:after { content: "pdb" }
+    td[data-icon="[file-database-sql]"]:after { content: "sql" }
+    td[data-icon="[file-executable-apk]"]:after { content: "apk" }
+    td[data-icon="[file-executable-app]"]:after { content: "app" }
+    td[data-icon="[file-executable-bat]"]:after { content: "bat" }
+    td[data-icon="[file-executable-cgi]"]:after { content: "cgi" }
+    td[data-icon="[file-executable-com]"]:after { content: "com" }
+    td[data-icon="[file-executable-exe]"]:after { content: "exe" }
+    td[data-icon="[file-executable-gadget]"]:after { content: "gad…" }
+    td[data-icon="[file-executable-jar]"]:after { content: "jar" }
+    td[data-icon="[file-executable-pif]"]:after { content: "pif" }
+    td[data-icon="[file-executable-vb]"]:after { content: "vb" }
+    td[data-icon="[file-executable-wsf]"]:after { content: "wsf" }
+    td[data-icon="[file-game-dem]"]:after { content: "dem" }
+    td[data-icon="[file-game-gam]"]:after { content: "gam" }
+    td[data-icon="[file-game-nes]"]:after { content: "nes" }
+    td[data-icon="[file-game-rom]"]:after { content: "rom" }
+    td[data-icon="[file-game-sav]"]:after { content: "sav" }
+    td[data-icon="[file-cad-dwg]"]:after { content: "dwg" }
+    td[data-icon="[file-cad-dxf]"]:after { content: "dxf" }
+    td[data-icon="[file-gis-gpx]"]:after { content: "gpx" }
+    td[data-icon="[file-gis-kml]"]:after { content: "kml" }
+    td[data-icon="[file-gis-kmz]"]:after { content: "kmz" }
+    td[data-icon="[file-web-asp]"]:after { content: "asp" }
+    td[data-icon="[file-web-aspx]"]:after { content: "aspx" }
+    td[data-icon="[file-web-cer]"]:after { content: "cer" }
+    td[data-icon="[file-web-cfm]"]:after { content: "cfm" }
+    td[data-icon="[file-web-csr]"]:after { content: "csr" }
+    td[data-icon="[file-web-css]"]:after { content: "css" }
+    td[data-icon="[file-web-htm]"]:after { content: "htm" }
+    td[data-icon="[file-web-html]"]:after { content: "html" }
+    td[data-icon="[file-web-js]"]:after { content: "js" }
+    td[data-icon="[file-web-jsp]"]:after { content: "jsp" }
+    td[data-icon="[file-web-php]"]:after { content: "php" }
+    td[data-icon="[file-web-phtml]"]:after { content: "pht…" }
+    td[data-icon="[file-web-rss]"]:after { content: "rss" }
+    td[data-icon="[file-web-xhtml]"]:after { content: "xht…" }
+    td[data-icon="[file-plugin-crx]"]:after { content: "crx" }
+    td[data-icon="[file-plugin-plugin]"]:after { content: "plu…" }
+    td[data-icon="[file-font-fnt]"]:after { content: "fnt" }
+    td[data-icon="[file-font-fon]"]:after { content: "fon" }
+    td[data-icon="[file-font-otf]"]:after { content: "otf" }
+    td[data-icon="[file-font-ttf]"]:after { content: "ttf" }
+    td[data-icon="[file-system-cab]"]:after { content: "cab" }
+    td[data-icon="[file-system-cpl]"]:after { content: "cpl" }
+    td[data-icon="[file-system-cur]"]:after { content: "cur" }
+    td[data-icon="[file-system-deskthemepack]"]:after { content: "des…" }
+    td[data-icon="[file-system-dll]"]:after { content: "dll" }
+    td[data-icon="[file-system-dmp]"]:after { content: "dmp" }
+    td[data-icon="[file-system-drv]"]:after { content: "drv" }
+    td[data-icon="[file-system-icns]"]:after { content: "icns" }
+    td[data-icon="[file-system-ico]"]:after { content: "ico" }
+    td[data-icon="[file-system-lnk]"]:after { content: "lnk" }
+    td[data-icon="[file-system-sys]"]:after { content: "sys" }
+    td[data-icon="[file-settings-cfg]"]:after { content: "cfg" }
+    td[data-icon="[file-settings-ini]"]:after { content: "ini" }
+    td[data-icon="[file-settings-prf]"]:after { content: "prf" }
+    td[data-icon="[file-encoded-hqx]"]:after { content: "hqx" }
+    td[data-icon="[file-encoded-mim]"]:after { content: "mim" }
+    td[data-icon="[file-encoded-uue]"]:after { content: "uue" }
+    td[data-icon="[file-compressed-7z]"]:after { content: "7z" }
+    td[data-icon="[file-compressed-cbr]"]:after { content: "cbr" }
+    td[data-icon="[file-compressed-deb]"]:after { content: "deb" }
+    td[data-icon="[file-compressed-gz]"]:after { content: "gz" }
+    td[data-icon="[file-compressed-pkg]"]:after { content: "pkg" }
+    td[data-icon="[file-compressed-rar]"]:after { content: "rar" }
+    td[data-icon="[file-compressed-rpm]"]:after { content: "rpm" }
+    td[data-icon="[file-compressed-sitx]"]:after { content: "sitx" }
+    td[data-icon="[file-compressed-targz]"]:after { content: "tar…" }
+    td[data-icon="[file-compressed-zip]"]:after { content: "zip" }
+    td[data-icon="[file-compressed-zipx]"]:after { content: "zipx" }
+    td[data-icon="[file-disk-image-bin]"]:after { content: "bin" }
+    td[data-icon="[file-disk-image-cue]"]:after { content: "cue" }
+    td[data-icon="[file-disk-image-dmg]"]:after { content: "dmg" }
+    td[data-icon="[file-disk-image-iso]"]:after { content: "iso" }
+    td[data-icon="[file-disk-image-mdf]"]:after { content: "mdf" }
+    td[data-icon="[file-disk-image-toast]"]:after { content: "toa…" }
+    td[data-icon="[file-disk-image-vcd]"]:after { content: "vcd" }
+    td[data-icon="[file-developer-c]"]:after { content: "c" }
+    td[data-icon="[file-developer-class]"]:after { content: "cla…" }
+    td[data-icon="[file-developer-cpp]"]:after { content: "cpp" }
+    td[data-icon="[file-developer-cs]"]:after { content: "cs" }
+    td[data-icon="[file-developer-dtd]"]:after { content: "dtd" }
+    td[data-icon="[file-developer-fla]"]:after { content: "fla" }
+    td[data-icon="[file-developer-h]"]:after { content: "h" }
+    td[data-icon="[file-developer-java]"]:after { content: "java" }
+    td[data-icon="[file-developer-lua]"]:after { content: "lua" }
+    td[data-icon="[file-developer-m]"]:after { content: "m" }
+    td[data-icon="[file-developer-pl]"]:after { content: "pl" }
+    td[data-icon="[file-developer-py]"]:after { content: "py" }
+    td[data-icon="[file-developer-sh]"]:after { content: "sh" }
+    td[data-icon="[file-developer-sln]"]:after { content: "sln" }
+    td[data-icon="[file-developer-swift]"]:after { content: "swi…" }
+    td[data-icon="[file-developer-vcxproj]"]:after { content: "vcx…" }
+    td[data-icon="[file-developer-xcodeproj]"]:after { content: "xco…" }
+    td[data-icon="[file-backup-bak]"]:after { content: "bak" }
+    td[data-icon="[file-backup-tmp]"]:after { content: "tmp" }
+    td[data-icon="[file-misc-crdownload]"]:after { content: "crd…" }
+    td[data-icon="[file-misc-ics]"]:after { content: "ics" }
+    td[data-icon="[file-misc-msi]"]:after { content: "msi" }
+    td[data-icon="[file-misc-part]"]:after { content: "part" }
+    td[data-icon="[file-misc-torrent]"]:after { content: "tor…" }
+
+    /**
+     * Footer
+     */
+    footer {
+        position: relative;
+        padding: .5rem;
+        height: 4rem;
+        text-align: center;
+        background: #eee;
+        color: #666;
+        overflow: hidden;
+    }
+    footer > span {
+        white-space: pre-line;
+    }
+}
+
+/**
+ * Small Breakpoint
+ */
+@media screen and (min-width: 480px)
+{
+    /**
+     * Main
+     */
+    main {
+        margin-bottom: -3rem;
+        padding-bottom: 3rem;
+    }
+    
+    /**
+     * Section Background
+     */
+    section:before {
+        bottom: 2.9375rem;
+    }
+    
+    /* File Name Column */
+    th + th {
+        width: 100%;
+    }
+    
+    /* Last Modified Column */
+    th + th + th,
+    td + td + td {
+        display: table-cell;
+    }
+    
+    /**
+     * Footer
+     */
+    footer {
+        height: 3rem;
+        text-align: left;
+        line-height: 2rem;
+    }
+    footer > span {
+        white-space: normal;
+    }
+}
+
+/**
+ * Medium Breakpoint
+ */
+@media screen and (min-width: 768px)
+{
+    /**
+     * Header
+     */
+    header {
+        padding: 1rem;
+    }
+    
+    /* Icon Column */
+    th:first-child {
+        width: 2.75rem;
+        width: 3rem;
+    }
+    td:first-child {
+        padding-left: 1rem;
+    }
+    
+    /* File Name Column */
+    th + th {
+        width: 60%;
+    }
+    
+    /* Description Column */
+    th + th + th + th + th {
+        width: 40%;
+    }
+    th + th + th + th + th,
+    td + td + td + td + td {
+        display: table-cell;
+    }
+    
+    /* Description Column */
+    td + td + td + td + td {
+        padding-right: 1rem;
+    }
+    
+    /* Icon - File - Triangle */
+    td[data-icon^="[file"]:before {
+        left: 2.25rem;
+    }
+
+    /**
+     * Footer
+     */
+    footer {
+        position: relative;
+        padding: .5rem 1rem;
+    }
+}
+
+/**
+ * Large Breakpoint
+ */
+@media screen and (min-width: 1300px)
+{
+    /**
+     * Increase the font size
+     */
+    html {
+        font-size: 110%;
+    }
+    
+    /**
+     * Footer
+     */
+    footer {
+        text-align: center;
+        height: 3rem;
+        line-height: 3rem;
+        background: transparent;
+        padding: 0;
+    }
+    
+    /**
+     * Footer
+     */
+    footer > span {
+        background: #fff;
+        display: block;
+        padding-left: 3rem;
+        margin-right: 3rem;
+    }
+    
+    /**
+     * Corner Triangles
+     */ 
+    .triangle,
+    .triangle:before {
+        position: absolute;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        
+    }
+    .triangle {
+        right: 0;
+        border-width: 3rem 3rem 0 0;
+        border-color: #00B3C4 transparent transparent transparent;
+        z-index: 3;
+    }
+    .triangle:before {
+        content: '';
+        right: 0;
+        border-width: 0 0 3rem 3rem;
+        border-color: transparent transparent #eee transparent;
+        z-index: 2;
+    }
+}

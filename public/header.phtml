@@ -1,0 +1,67 @@
+<?php
+/**
+ * header.phtml
+ *
+ * The document header of the Apache directory listing.
+ *
+ * @copyright  Copyright (c) 2014 Finn Rudolph (http://finnrudolph.de)
+ * @license    http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0
+ * @author     Finn Rudolph <finn.rudolph@gmail.com>
+ */
+
+/* Get the root path from the environment variable set in the .htaccess file. */
+$rootPath = getenv('ROOT_PATH');
+ 
+/* Base URL for all resources to create absolute paths. */
+$baseUrl = 'http' . (($_SERVER['HTTPS'] == 'on') ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . $rootPath; 
+
+/* Get the request path starting from the root path. */
+$rootRequestUrl = substr($_SERVER['REQUEST_URI'], strlen($rootPath));
+
+/* Get the current path and store it in an array. */
+$currentPath = explode('/', $rootRequestUrl);
+
+/* Reverse the path array to get the last path segment at the first position. */
+$reversedPath = array_reverse($currentPath);
+
+/* Remove the first empty value from the path array. */
+array_shift($reversedPath);
+
+/* Strip the parameter part from the request URL (?C=N;O=A). */
+list($requestUrl,) = explode('?', $rootRequestUrl, 2);
+
+/* Get the request url segments. */
+$requestUrlSegments = explode('/', $requestUrl);
+
+/* Create the headline navigation. */
+$headlineNavigation = '';
+$href = $rootPath . '/';
+foreach($requestUrlSegments as $segment)
+{
+    if($segment !== '')
+    {
+        $href .= $segment . '/';
+        $headlineNavigation .= '<a href="' . $href . '">' . $segment . '</a>/';
+    }
+}
+
+?><!doctype html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <title><?php echo implode(' | ', $reversedPath) ?>root &mdash; Responsive Apache Directory Listing</title>
+        <meta name="keywords" content="responsive, apache, webserver, .htaccess, directory listing, css">
+        <meta name="description" content="The demo of a responsive Apache directory listing.">
+        <meta name="author" content="Finn Rudolph">
+        <meta name="robots" content="index, follow, noarchive">
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="shortcut icon" href="<?php echo $baseUrl; ?>/public/favicon.ico"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/public/all.css" media="all">
+        <script src="<?php echo $baseUrl; ?>/public/directory_listing.js"></script>
+    </head>
+	<body>
+        <main>
+            <section>
+                <header>
+                    <h1><a id="root" href="<?php echo $rootPath; ?>/">root</a>:<?php echo $headlineNavigation ?></h1>
+                </header>
